@@ -39,16 +39,13 @@
 
 > Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
 > </br> You must write an algorithm with O(log n) runtime complexity.
-> </br></br>**Example 1:**
-> </br>Input: nums = [-1,0,3,5,9,12], target = 9
+> </br></br>**Example 1:** > </br>Input: nums = [-1,0,3,5,9,12], target = 9
 > </br>Output: 4
 > </br>Explanation: 9 exists in nums and its index is 4
-> </br></br>**Example 2:**
-> </br>Input: nums = [-1,0,3,5,9,12], target = 2
+> </br></br>**Example 2:** > </br>Input: nums = [-1,0,3,5,9,12], target = 2
 > </br>Output: -1
 > </br>Explanation: 2 does not exist in nums so return -1
-> </br></br>**Constraints:**
-> </br>1 <= nums.length <= 104
+> </br></br>**Constraints:** > </br>1 <= nums.length <= 104
 > </br>-104 < nums[i], target < 104
 > </br>All the integers in nums are unique.
 > </br>nums is sorted in ascending order.
@@ -128,6 +125,8 @@ target.forEach((item, i) => {
 });
 ```
 
+</br>
+
 ```js
 // 이진 검색 구현 (재귀 함수)
 function binarySearchRecursive(array, target, start, end) {
@@ -164,3 +163,123 @@ target.forEach((item, i) => {
   console.log(`${target[i]} 요소는 ${result} index에 있습니다.`);
 });
 ```
+
+</br>
+
+### **동빈나 예제**
+
+![Untitled](./%08image/example2.png)
+
+```js
+// 이진탐색 적용 못한 풀이
+function simpleSolution(arr, m) {
+  // h 보다 큰 요소만 1씩 뺐을때 요소들의 합이 m임 근데, h의 최댓값은 가장 큰 떡의 길이에 해당한다.
+  // 가장 큰 떡의 길이에서 1씩 계속 빼주면서 원하는 m 값이 최초 등장할 때의 h를 리턴한다.
+
+  // 내림차순 정렬
+  arr.sort((a, b) => b - a);
+  let end = arr.length - 1;
+  let target;
+
+  // h 최대값 도출
+  for (let i = 1; i <= arr[0]; i++) {
+    target = arr[0] - i;
+    let result = arr
+      .filter((item) => item > target)
+      .map((item) => item - target)
+      .reduce((acc, cur) => (acc += cur));
+    // console.log('result: ', result);
+    if (result >= m) {
+      return target;
+    }
+  }
+  return target;
+}
+
+// 실행시간 0.655ms
+console.time('simpleSolution');
+console.log('simpleSolution : ', simpleSolution(heightOfRiceCake, 1230));
+console.timeEnd('simpleSolution');
+```
+
+</br>
+
+```js
+// 이진탐색 적용한 풀이
+function binarySearchForExample2(arr, m) {
+  // 오름차순 정렬
+  arr.sort((a, b) => a - b);
+
+  let start = 0;
+  let end = Math.max(...arr);
+  let result;
+  // h를 바이너리 서치로 임의로 정해준다.
+  while (start <= end) {
+    let sum = 0;
+    let mid = Math.floor((start + end) / 2);
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > mid) {
+        sum += arr[i] - mid;
+      }
+    }
+    if (sum < m) {
+      end = mid - 1;
+      continue;
+    } else if (sum >= m) {
+      result = mid;
+      start = mid + 1;
+    }
+  }
+
+  return result;
+}
+
+// 실행시간 : 2.416ms
+console.time('binarySearchForExample2');
+console.log(
+  'binarySearchForExample2 : ',
+  binarySearchForExample2(heightOfRiceCake, 1230),
+);
+console.timeEnd('binarySearchForExample2');
+```
+
+</br>
+
+```js
+// 동빈나 솔루션
+function sol(arr, m) {
+  // Set start and end points for binary search
+  let start = 0;
+  let end = Math.max(...arr);
+
+  // Perform binary search (recursive)
+  let result = 0;
+  while (start <= end) {
+    let total = 0;
+    let mid = Math.floor((start + end) / 2);
+    for (let i = 0; i < arr.length; i++) {
+      let x = arr[i];
+      // Calculate the amount of tteokbokki when cut
+      if (x > mid) {
+        total += x - mid;
+      }
+    }
+    // If the amount of tteokbokki is insufficient, cut more (search for the right part)
+    if (total < m) {
+      end = mid - 1;
+    }
+    // Cut less if the amount of tteokbokki is sufficient (search for the left part)
+    else {
+      result = mid; // Since cutting as little as possible is the correct answer, record it here in result
+      start = mid + 1;
+    }
+  }
+  return result;
+}
+```
+
+</br>
+
+그런데 이상한 것이.. 실행시간에 왜 저런 차이가 나는걸까?
+
+자료가 기하급수적으로 늘어나면 물론 나의 초반 풀이보다 이진탐색 방식이 더 빠를지도 잘 모르겠다.
