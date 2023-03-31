@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/myeongseoklee/data-structure-algorithm/issues"
   },
-  "homepage": "https://github.com/myeongseoklee/data-structure-algorithm#readme"
+  "homepage": "https://github.com/myeongseoklee/data-structure-algorithm#readme",
+  "type": "module"
 }
