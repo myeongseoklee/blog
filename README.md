@@ -1,6 +1,7 @@
 # Data Structure & Algorithm
 
 **자료구조**와 **알고리즘**에 대한 기본기를 갖추기 위해 작성한 레포지토리입니다.
+**향로**님의 markdown-tistory 패키지를 활용하여 블로그에 업로드합니다.
 
 </br>
 
@@ -18,5 +19,6 @@
 
 ### 참고자료
 
+- 향로님의 [markdown-tistory](https://github.com/jojoldu/markdown-tistory)
 - 코드없는 프로그래밍님의 [코딩테스트](https://www.youtube.com/@user-pw9fm4gc7e) 유튜브 영상
 - 동빈나 님의 [(이코테 2021) 이것이 취업을 위한 코딩 테스트다 with 파이썬](https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC) 유튜브 영상

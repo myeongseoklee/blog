@@ -11,7 +11,7 @@
 
 ### **Stable Search**
 
-![Untitled](./%08image/stableSort.png)
+![Untitled](./images/stableSort.png)
 
 > 출처 : https://youtu.be/tLG10WsVntI
 
@@ -19,7 +19,7 @@
 
 ### **Unstable Search**
 
-![Untitled](./%08image/unstableSort.png)
+![Untitled](./images/unstableSort.png)
 
 > 출처 : https://youtu.be/tLG10WsVntI
 
@@ -50,7 +50,7 @@
 > </br>All the integers in nums are unique.
 > </br>nums is sorted in ascending order.
 
-![Untitled](./%08image/binarySearch15.png)
+![Untitled](./images/binarySearch15.png)
 
 > 출처 : https://youtu.be/tLG10WsVntI
 
@@ -66,7 +66,7 @@ pivot이 가리키는 숫자가 15보다 작기 때문에 15라는 숫자의 위
 
 pivot 5가 가리키는 숫자는 15이므로, 15라는 숫자는 배열의 5번째 index에 위치한 것으로 찾을 수 있다.
 
-![Untitled](./%08image//binarySearch16.png)
+![Untitled](./images/binarySearch16.png)
 
 > 출처 : https://youtu.be/tLG10WsVntI
 
@@ -168,7 +168,11 @@ target.forEach((item, i) => {
 
 ### **동빈나 예제**
 
-![Untitled](./%08image/example2.png)
+![Untitled](./images/example2.png)
+
+> 출처 : https://youtu.be/94RC-DsGMLo
+
+</br>
 
 ```js
 // 이진탐색 적용 못한 풀이
@@ -283,3 +287,43 @@ function sol(arr, m) {
 그런데 이상한 것이.. 실행시간에 왜 저런 차이가 나는걸까?
 
 자료가 기하급수적으로 늘어나면 물론 나의 초반 풀이보다 이진탐색 방식이 더 빠를지도 잘 모르겠다.
+
+### **값이 특정 범위에 속하는 데이터 개수 구하기**
+
+```js
+function binarySearchForLoop(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  let idxDiff = end - start;
+  while (idxDiff >= 0) {
+    let centerIdx = Math.floor((end + start) / 2);
+    let centerVal = arr[centerIdx];
+
+    if (target === centerVal) {
+      return centerIdx;
+    }
+
+    if (centerVal < target) {
+      start = centerIdx + 1;
+    } else {
+      end = centerIdx - 1;
+    }
+
+    idxDiff = end - start;
+  }
+
+  return -1;
+}
+
+function countByRange(nums, start, end) {
+  nums.sort((a, b) => a - b);
+  const startIndex = binarySearchForLoop(nums, start);
+  const endIndex = binarySearchForLoop(nums, end);
+
+  return endIndex - startIndex;
+}
+
+const arr = [1, 2, 3, 3, 3, 3, 4, 4, 5, 6, 7, 8, 9];
+countByRange(arr, 3, 7); // 8
+```

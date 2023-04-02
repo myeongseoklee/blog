@@ -36,3 +36,14 @@ target.forEach((item, i) => {
   }
   console.log(`${target[i]} 요소는 ${result} index에 있습니다.`);
 });
+
+function countByRange(nums, start, end) {
+  nums.sort((a, b) => a - b);
+  const startIndex = binarySearchForLoop(nums, start);
+  const endIndex = binarySearchForLoop(nums, end);
+
+  return endIndex - startIndex;
+}
+
+const arr = [1, 2, 3, 3, 3, 3, 4, 4, 5, 6, 7, 8, 9];
+console.log(countByRange(arr, 3, 7));
