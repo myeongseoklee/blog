@@ -166,7 +166,57 @@ target.forEach((item, i) => {
 
 </br>
 
-### **동빈나 예제**
+### **값이 특정 범위에 속하는 데이터 개수 구하기**
+
+```js
+function binarySearchForLoop(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  let idxDiff = end - start;
+  while (idxDiff >= 0) {
+    let centerIdx = Math.floor((end + start) / 2);
+    let centerVal = arr[centerIdx];
+
+    if (target === centerVal) {
+      return centerIdx;
+    }
+
+    if (centerVal < target) {
+      start = centerIdx + 1;
+    } else {
+      end = centerIdx - 1;
+    }
+
+    idxDiff = end - start;
+  }
+
+  return -1;
+}
+
+function countByRange(nums, start, end) {
+  nums.sort((a, b) => a - b);
+  const startIndex = binarySearchForLoop(nums, start);
+  const endIndex = binarySearchForLoop(nums, end);
+
+  return endIndex - startIndex;
+}
+
+const arr = [1, 2, 3, 3, 3, 3, 4, 4, 5, 6, 7, 8, 9];
+countByRange(arr, 3, 7); // 8
+```
+
+</br>
+
+### **파라메트릭 서치(Parametric Search)**
+
+- 파라메트릭 서치란 최적화 문제(극대화, 극소화 등)를 결정문제('예' 혹은 '아니오')로 바꾸어 해결하는 기법입니다.
+  - 예시 : 특정한 조건을 만족하는 가장 알맞은 값을 빠르게 찾는 최적화 문제
+- 일반적으로 코딩 테스트에서 파라메트릭 서치 문제는 이진 탐색을 이용하여 해결할 수 있다.
+
+</br>
+
+### **동빈나 예제 1**
 
 ![Untitled](./images/example2.png)
 
@@ -288,42 +338,65 @@ function sol(arr, m) {
 
 자료가 기하급수적으로 늘어나면 물론 나의 초반 풀이보다 이진탐색 방식이 더 빠를지도 잘 모르겠다.
 
-### **값이 특정 범위에 속하는 데이터 개수 구하기**
+</br>
+
+### **동빈나 예제2**
+
+![Untitled](./images/example3.png)
+
+> 출처 : https://youtu.be/94RC-DsGMLo
+
+<br>
 
 ```js
-function binarySearchForLoop(arr, target) {
-  let start = 0;
-  let end = arr.length - 1;
+function findLeft(arr, target, start = 0, end = arr.length - 1) {
+  let mid = Math.floor((start + end) / 2);
 
-  let idxDiff = end - start;
-  while (idxDiff >= 0) {
-    let centerIdx = Math.floor((end + start) / 2);
-    let centerVal = arr[centerIdx];
+  if (target < arr[mid]) {
+    return findLeft(arr, target, start, mid - 1);
+  }
 
-    if (target === centerVal) {
-      return centerIdx;
-    }
+  if (arr[mid] < target) {
+    return findLeft(arr, target, mid + 1, end);
+  }
 
-    if (centerVal < target) {
-      start = centerIdx + 1;
-    } else {
-      end = centerIdx - 1;
-    }
-
-    idxDiff = end - start;
+  if (arr[mid] === target) {
+    return arr[mid - 1] === target ? findLeft(arr, target, 0, mid - 1) : mid;
   }
 
   return -1;
 }
 
-function countByRange(nums, start, end) {
-  nums.sort((a, b) => a - b);
-  const startIndex = binarySearchForLoop(nums, start);
-  const endIndex = binarySearchForLoop(nums, end);
+function findRight(arr, target, start = 0, end = arr.length - 1) {
+  let mid = Math.floor((start + end) / 2);
 
-  return endIndex - startIndex;
+  if (target < arr[mid]) {
+    return findRight(arr, target, start, mid - 1);
+  }
+
+  if (arr[mid] < target) {
+    return findRight(arr, target, mid + 1, end);
+  }
+
+  if (arr[mid] === target) {
+    return arr[mid + 1] === target
+      ? findRight(arr, target, mid + 1, arr.length - 1)
+      : mid;
+  }
+
+  return -1;
 }
 
-const arr = [1, 2, 3, 3, 3, 3, 4, 4, 5, 6, 7, 8, 9];
-countByRange(arr, 3, 7); // 8
+function countNumber(arr, target) {
+  let end = arr.length - 1;
+  let start = 0;
+
+  const leftIdx = findLeft(arr, target, start, end); // 2
+  const rightIdx = findRight(arr, target, start, end); // 5
+
+  return rightIdx - leftIdx;
+}
+
+const arr = [1, 1, 2, 2, 2, 2, 3];
+console.log(countNumber(arr, 2)); // 3
 ```
