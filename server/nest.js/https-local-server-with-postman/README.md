@@ -6,13 +6,13 @@
 
 ### 1. mkcert로 인증서 만들기
 
-1. 설치
+1-1. 설치
 
 ```
 npm install -g mkcert
 ```
 
-2. CA 만들기
+1-2. CA 만들기
 
 ```
 mkcert -install
@@ -20,17 +20,16 @@ mkcert -install
 mkcert -CAROOT #CA 저장 위치 확인
 ```
 
-3. 인증서 만들기
+1-3. 인증서 만들기
 
 ```
-$ mkcert -cert-file [cert file 경로] -key-file [cert key file 경로] localhost
+mkcert -cert-file [cert file 경로] -key-file [cert key file 경로] localhost
 ```
 
 > 출처 : https://www.npmjs.com/package/mkcert
 
 <br>
 <hr>
-<br>
 
 ### 2. https sever 설정
 
@@ -65,7 +64,6 @@ bootstrap();
 
 <br>
 <hr>
-<br>
 
 ### 3. postman으로 통신하기
 
@@ -90,5 +88,4 @@ SSL Error: Self signed certificate in certificate chain
 <br>
 <hr>
 
-> 출처 :
-> <br> https://docs.nestjs.com/faq/multiple-servers > <br> https://github.com/Subash/mkcert/blob/8a03d4eef7aed843e3707d1490cdf13fffab2cf9/readme.md
+> [출처] <br> - https://docs.nestjs.com/faq/multiple-servers <br> - https://github.com/Subash/mkcert/blob/8a03d4eef7aed843e3707d1490cdf13fffab2cf9/readme.md
