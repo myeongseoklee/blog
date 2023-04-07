@@ -18,7 +18,7 @@
 - 일반적으로 알고리즘 문제에서의 2차원 공간은 행렬의 의미로 사용한다.
 - 시뮬레이션 및 완전 탐색 문제에서는 2차원 공간에서의 방향 벡터가 자주 활용된다.
 
-![Untitled](./images/%EB%B0%A9%ED%96%A5%EB%B2%A1%ED%84%B0.png)
+![Untitled](./images/vector.png)
 
 ```js
 // 동, 북, 서, 남
@@ -39,8 +39,8 @@ for (let i = 0; i < 4; i++) {
 
 ### 예제 1. 상하좌우
 
-![Untitled](./images/%EC%83%81%ED%95%98%EC%A2%8C%EC%9A%B01.png)
-![Untitled](./images/%EC%83%81%ED%95%98%EC%A2%8C%EC%9A%B02.png)
+![Untitled](./images/upDownLeftRight1.png)
+![Untitled](./images/upDownLeftRight2.png)
 
 > \- 시간제한 : 2초\
 > \- 입력 조건 :\
@@ -169,7 +169,7 @@ console.timeEnd('test1');
 
 ### 예제 2. 시각
 
-![Untitled](./images/%EC%8B%9C%EA%B0%81.png)
+![Untitled](./images/time.png)
 
 > \- 시간제한 : 2초\
 > \- 입력 조건 : 첫째 줄에 정수 N이 입력된다. ( 0 <= N <= 23 )\
@@ -245,8 +245,8 @@ console.timeEnd('test');
 
 # 예제 3. 왕실의 나이트
 
-![Untitled](./images/%EC%99%95%EC%8B%A4%EC%9D%98%20%EB%82%98%EC%9D%B4%ED%8A%B81.png)
-![Untitled](./images/%EC%99%95%EC%8B%A4%EC%9D%98%20%EB%82%98%EC%9D%B4%ED%8A%B82.png)
+![Untitled](./images/royalKnight1.png)
+![Untitled](./images/royalKnight2.png)
 
 > \- 시간제한 : 1초\
 > \- 입력 조건 : 첫째 줄에 8 X 8 좌표 평면상에서 현재 나이트가 위치한 곳의 좌표를 나타내는 두 문자로 구성된 문자열이 입력된다. 입력 문자는 a1, c2처럼 열과 행으로 이뤄진다.\
@@ -349,7 +349,7 @@ console.timeEnd('test2');
 
 ### 예제 4. 문자열 재정렬
 
-![Untitled](./images/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9E%AC%EC%A0%95%EB%A0%AC.png)
+![Untitled](./images/rearrangeString.png)
 
 > \- 시간제한 : 1초\
 > \- 입력 조건 : 첫째 줄에 하나의 문자열 S가 주어진다. ( 1 <= S의 길이 <= 10,000 )\
@@ -444,3 +444,7 @@ console.timeEnd('test2');
   - 처리해야 할 경우가 늘어난다면 let으로 따로 처리할 메모리를 할당하고 if 분기처리만 for문 안에 추가해주면 된다.
   - 그러나, 지금 상태로는 정규식을 잘 모르기 때문에 다른 것은 다 적용하여 풀더라도 isNaN은 썼을 것 같다.
   - string.match() 메소드와 정규표현식 작성 방법을 조금 학습해 둔다면 문자열 search 문제에 접근이 조금 더 쉬워질 것 같다. 정규식 작성법이 복잡하긴 하지만...
+
+---
+
+> 출처 : [(이코테 2021 강의 몰아보기) 2. 그리디 & 구현](https://youtu.be/94RC-DsGMLo)
