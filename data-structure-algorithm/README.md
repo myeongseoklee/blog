@@ -1,4 +1,4 @@
-# Data Structure & Algorithm
+# **Data Structure & Algorithm**
 
 **자료구조**와 **알고리즘**에 대한 기본기를 갖추기 위해 작성한 레포지토리입니다.
 </br>
