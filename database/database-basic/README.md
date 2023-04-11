@@ -53,7 +53,7 @@
   - 추상화 수준이 가장 높다.
   - 비즈니수 요구사항을 추상화하여 기술할 때 사용한다.
 
-![](./images/conceptual%20data%20model.png)
+![](./images/conceptual-data-model.png)
 
 - logical (or representational) data models
 
@@ -63,7 +63,7 @@
   - 백엔드 개발자는 logical 모델을 많이 사용하는데, relational data model을 많이 사용한다.
   - relation이 table을 의미한다.
 
-![](./images/logical%20data%20model.png)
+![](./images/logical-data-model.png)
 
 - physical (or low-level) data models
   - 컴퓨터에 데이터가 어떻게 파일 형태로 저장되는지를 기술할 수 있는 수단을 제공
@@ -94,7 +94,7 @@
 - 대부분의 DBMS가 three level을 완벽하게 혹은 명시적으로 나누지는 않는다.
 - 데이터가 존재하는 곳은 internal level이다.
 
-![](./images/three-schema%20architecture.png)
+![](./images/three-schema-architecture.png)
 
 - external schemas(or user views) at external (or view) level
   - external views, user views 라고도 불림
