@@ -1,4 +1,4 @@
-# **DFS/BFS**
+# **Stack / Queue / Recursive function**
 
 - 탐색(Search)이란 많은 양의 데이터 중에서 원하는 데이터를 찾는 과정을 말한다.
 - 대표적인 그래프 탐색 알고리즘으로는 DFS와 BFS가 있다.
@@ -124,12 +124,12 @@ while (!queue.isEmpty()) {
   - 어느 정도 출력하다가 최대 콜 스택 사이즈가 초과되었다는 에러가 출력된다.
 
 ```js
-function recursiveFunction() {
+function recursiveFunction1() {
   console.log('재귀 함수를 호출합니다.');
-  recursiveFunction();
+  recursiveFunction1();
 }
 
-recursiveFunction(); // RangeError: Maximum call stack size exceeded
+recursiveFunction1(); // RangeError: Maximum call stack size exceeded
 ```
 
 - 재귀 함수를 문제 풀이에서 사용할 때는 재귀 함수의 종료조건을 반드시 명시해야 한다.
@@ -165,7 +165,6 @@ recursiveFunction2(1);
   - 수학적으로 0!, 1!의 값은 1이다.
 
 ```js
-// 반복문
 function factorialIterative(n) {
   let result = 1;
   // 1부터 n까지의 수를 차례대로 곱하기
