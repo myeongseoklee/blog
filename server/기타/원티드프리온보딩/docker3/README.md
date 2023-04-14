@@ -12,6 +12,8 @@
 - GCP
   - GKE(Google Kubernetes Engine)
 - AWS
+  - EKS
+  - ECS
 
 ### 컨테이너 오케스트레이션의 기능
 
