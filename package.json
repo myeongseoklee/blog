@@ -1,20 +1,25 @@
 {
-  "name": "data-structure-algorithm",
+  "name": "blog",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/myeongseoklee/data-structure-algorithm.git"
+    "url": "git+https://github.com/myeongseoklee/blog.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/myeongseoklee/data-structure-algorithm/issues"
+    "url": "https://github.com/myeongseoklee/blog/issues"
   },
-  "homepage": "https://github.com/myeongseoklee/data-structure-algorithm#readme",
-  "type": "module"
+  "homepage": "https://github.com/myeongseoklee/blog#readme",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "ts-node": "^10.9.1"
+  }
 }

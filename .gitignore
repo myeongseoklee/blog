@@ -159,7 +159,7 @@ dist
 .tern-port
 
 # Stores VSCode versions used for testing VSCode extensions
-.vscode-test
+.vscode*
 
 # yarn v2
 .yarn/cache
@@ -197,3 +197,5 @@ dist
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,node,dotenv
+
+.lh

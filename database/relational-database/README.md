@@ -1,4 +1,4 @@
-# **Relational database**
+# **Relational data model**
 
 ### Set
 
@@ -6,6 +6,8 @@
 - 서로 다른 elements를 가지는 collection
 - 하나의 set에서 elements의 순서는 중요하지 않다.
 - e.g. {1, 3, 11, 4, 7}
+
+<br />
 
 ### relation in mathematics
 
@@ -25,6 +27,8 @@
   - Cartesian Product의 부분집합(subset of Cartesian Product)
   - 튜플의 집합(set of tuples)
 
+<br />
+
 ### relation in mathematics & relational data model
 
 ![](./images/relational-data-model.png)
@@ -33,6 +37,8 @@
 - 그리고 각 set은 집합의 이름 X1처럼 이름을 가질 수 있다.(attribute, column)
 - 그리고 연결된 set 사이에 튜플이 존재한다.
 - 이 모든 것을 relation이라고 한다.
+
+<br />
 
 ### relational data model의 예시 (student relation)
 
@@ -74,20 +80,28 @@ Relation schema란 relation의 구조를 나타낸다.
 - relation schema에서 attributes의 수
 - e.g. STUDENT(id, name, grade, major, phone_number, emer_phone_num) -> **degree : 6**
 
+<br />
+
+# **Relational database**
+
 ### relational database
 
 - relational data model에 기반하여 구조화된 database
 - relational database는 여러개의 relations으로 구성된다.
 
+<br />
+
 ### relational database schema
 
 - relation schemas set + integrity constraints set(무결성 제약 조건)
+
+<br />
 
 ### relation의 특징들
 
 - relation은 중복된 tuple을 가질 수 없다.
   - relation은 tuples의 집합이기 때문이다.
-    ![](./images/%EC%A4%91%EB%B3%B5%ED%8A%9C%ED%94%8C%EB%B6%88%EA%B0%80.png)
+    ![](./images/tuple-composite.png)
 - relation의 tuple을 식별하기 위해 attribute의 부분 집합을 key로 설정한다.
   ![](./images/key.png)
 - relation에서 tuple의 순서는 중요하지 않다.
@@ -96,17 +110,23 @@ Relation schema란 relation의 구조를 나타낸다.
 - attribute는 atomic 해야 한다 (composite or multivalued attribute 허용 안됨)
   ![](./images/composite-multivalued.png)
 
+<br />
+
 ### NULL의 의미
 
 - 값이 존재하지 않는다
 - 값이 존재하나 아직 그 값이 무엇인지 알지 못한다
 - 해당 사항과 관련이 없다
 
+<br />
+
 ### super key
 
 - relation에서 tuples를 **unique**하게 식별할 수 있는 attributes set
 - e.g. PLAYER(id, name, team_id, back_number, birth_date)의 super key는 <br />
   {id, name, team_id, back_number, birth_date}, {id, name}, {name, team_id, back_number}, ... etc
+
+<br />
 
 ### candidate key
 
@@ -115,12 +135,16 @@ Relation schema란 relation의 구조를 나타낸다.
 - e.g. PLAYER(id, name, team_id, back_number, birth_date)의 candidate key는 <br />
   {id}, {team_id, back_number}
 
+<br />
+
 ### primary key
 
 - relation에서 tuples를 unique하게 식별하기 위해 선택된 candidate key
 - e.g. PLAYER(id, name, team_id, back_number, birth_date)의 primary key는 <br />
   {id} or {team_id, back_number}
 - 보통 attribute 수가 적은 키를 primary key로 사용한다.
+
+<br />
 
 ### unique key
 
@@ -129,11 +153,15 @@ Relation schema란 relation의 구조를 나타낸다.
 - e.g. PLAYER(<u>id</u>, name, team_id, back_number, birth_date)의 unique key는 <br />
   {team_id, back_number}
 
+<br />
+
 ### foreign key
 
 - 다른 relation의 PK를 참조하는 attributes set
 - e.g. PLAYER(<u>id</u>, name, team_id, back_number, birth_date)와 TEAM(<u>id</u>, name, manager)가 있을 때 <br />
   foreign key는 PLAYER의 {team_id}
+
+<br />
 
 ### constraints
 
@@ -166,5 +194,7 @@ Relation schema란 relation의 구조를 나타낸다.
     - referential integrity constraint(참조 무결성 제약)
       - FK와 PK와 도메인이 같아야 하고 PK에 없는 values를 FK가 값으로 가질 수 없다.
         ![](./images/referential-integrity-constraints.png)
+
+<br />
 
 > 출처 : [쉬운코드](https://youtu.be/gjcbqZjlXjM)님의 유튜브 강의

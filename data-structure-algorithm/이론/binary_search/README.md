@@ -3,8 +3,9 @@
 ### **Array Search**
 
 - sorting에는 heap sort, quick sort, merge sort가 있다.
-- sorting은 O(nlogn)의 시간복잡도를 갖는다.
+- sorting은 **O(nlogn)** 의 시간복잡도를 갖는다.
 - sorting 알고리즘에는 stable의 개념이 있다.
+  - stable이란 정렬을 했을 때 중복된 값들의 순서가 변하지 않으면 안정(stable)정렬, 변하면 불안정(unstable)정렬이라고 한다.
 - merge sorting은 stable한 sorting이고 quick sort, heap sort는 unstable한 sorting이다.
 
 </br>
@@ -27,7 +28,7 @@
 
 ### **Binary Search(이분탐색)**
 
-- 일반적인 search, 즉 순차탐색은 O(n)의 시간 복잡도를 갖는데 반해, sorted array를 binary search 할 때는 O(logn)의 시간 복잡도를 갖는다. 따라서, 배열을 일정 기준으로 정렬해도 무관하다면, binary search를 적극 사용하는 것이 좋다.
+- 일반적인 search, 즉 순차탐색은 **O(n)** 의 시간 복잡도를 갖는데 반해, sorted array를 binary search 할 때는 **O(logn)** 의 시간 복잡도를 갖는다. 따라서, 배열을 일정 기준으로 정렬해도 무관하다면, binary search를 적극 사용하는 것이 좋다.
 - binary search를 직접 구현 해야만 풀 수 있는 문제들이 있기 때문에 직접 구현할 줄 알아야 한다.
 - 주요 개념은 left(start), right(end), pivot(mid)의 개념이다.
 - pivot = (left + right) / 2, 즉 pivot은 중간 값이다.
