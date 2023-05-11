@@ -272,3 +272,7 @@ REFERENCES `DEPARTMENT` (`id`)
 ON DELETE SET NULL
 ON UPDATE CASCADE,
 ```
+
+<br>
+
+> 출처 : [쉬운코드](https://youtu.be/c8WNbcxkRhY)님의 유튜브 강의
