@@ -1,8 +1,8 @@
 # **Hexagonal Architecture Practice Project**
 
-[현재 서비스를 운영하고 있는 토이 프로젝트](https://youtu.be/c8WNbcxkRhY)는 controller, service, repository로 이루어즌 3 tier layered architecture로 개발하고 있다.
+[현재 서비스를 운영하고 있는 let's Git it 토이 프로젝트](https://youtu.be/c8WNbcxkRhY)는 controller, service, repository로 이루어진 3 tier layered architecture로 개발하고 있다.
 
-초기 개발 이후 지속적으로 서비스를 개선하고자 리펙토링이나 기능들을 추가하고 있는데, 그 과정에서 **유지보수에 불편함**을 겪었는데 그 원인이 무엇일까 생각해보았다.
+초기 개발 이후 지속적으로 서비스를 개선하고자 리펙토링이나 기능들을 추가는 과정에서 **유지보수에 불편함**을 겪었는데 그 원인이 무엇일까 생각해보았다.
 
 <br>
 
@@ -42,6 +42,8 @@
 
 그래서 이러한 특징과 원칙이 적용된 hexagonal architecture를 선택했다.
 
+<br>
+
 ### **물론 hexagonal architecture가 정답은 아니라고 생각한다.**
 
 진행하고 있는 토이프로젝트의 도메인은 비즈니스 논리가 그다지 복잡하지 않다. 또한, useCase와 Port interface로 추상화하여 의존성을 역전하는 것은 아키텍처의 복잡도 자체를 높이기 때문에 규모가 작은 우리 서비스의 경우 레이어드 아키텍처에 비해 얻을 수 있는 장점이 크지 않다.
@@ -59,8 +61,6 @@ hexagonal architecture를 간단하게 구현해보면서 이러한 개념들을
 # **프로젝트 구조**
 
 ✅ Github Repository : [https://github.com/myeongseoklee/hexagonal-practice](https://github.com/myeongseoklee/hexagonal-practice)
-
-<br>
 
 ```bash
 .
@@ -309,6 +309,8 @@ Request header의 Authorization에 담긴 accessToken의 값에 따라 인증, �
 📌 디자인 패턴 개요 : [https://gyoogle.dev/blog/design-pattern/Overview.html](https://gyoogle.dev/blog/design-pattern/Overview.html)
 
 📌 쉽게 설명한 클린 / 헥사고날 아키텍쳐 : [https://haandol.github.io/2022/02/13/demystifying-hexgagonal-architecture.html](https://haandol.github.io/2022/02/13/demystifying-hexgagonal-architecture.html)
+
+📌 [Hexagonal Architecture] 1. 헥사고날 아키텍처란? : [https://blog.jiniworld.me/176?category=1098419#a04-2](https://blog.jiniworld.me/176?category=1098419#a04-2)
 
 📌 모두싸인 Backend 아키텍처 해부하기 : [https://team.modusign.co.kr/%EB%AA%A8%EB%91%90%EC%8B%B8%EC%9D%B8-%EB%B0%B1%EC%97%94%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%ED%95%B4%EB%B6%80%ED%95%98%EA%B8%B0-a24aeccebd2a](https://team.modusign.co.kr/%EB%AA%A8%EB%91%90%EC%8B%B8%EC%9D%B8-%EB%B0%B1%EC%97%94%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%ED%95%B4%EB%B6%80%ED%95%98%EA%B8%B0-a24aeccebd2a)
 
